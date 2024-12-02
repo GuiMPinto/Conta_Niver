@@ -1,0 +1,159 @@
+@use './componentes/variaveis';
+@use './componentes/bufet';
+@use './componentes/recreacao';
+@use './componentes/atividades';
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Chewy, Verdana, Geneva, Tahoma, sans-serif;
+    list-style: none;
+}
+
+h3 
+{
+    text-transform: uppercase;
+}
+
+
+
+header
+{
+
+    background-image: url(../imagens/balloons_640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;//relaciona com o -- &::before -- se não usar este 
+                       //comando aqui a propriedade -- &::before -- avança para os conteúdos 
+                       //que não são o header 
+
+    &::before 
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: variaveis.$roxo;
+        content: '';
+        opacity: .5;
+    }
+
+    img 
+    {
+        max-width: 50%;
+        padding-right: 15vw;//conserta o erro da imagem original
+        margin: 5vw 30% 2vh 30%;
+        position: relative;//relaciona com o -- &::before --
+    }
+    p
+    {
+        max-width: 80%;
+        font-size: 22px;
+        padding-left:15px;
+        color:variaveis.$branco;
+        background-color: variaveis.$rosa;
+        border-radius: 5px;
+        margin-left: 9vw;
+        position: relative;//relaciona com o -- &::before --
+    }
+    ul 
+    {
+        width: 80%;
+        background-color: variaveis.$branco;
+        border-radius: 5px;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        margin-left: 10vw;
+        position: relative;//relaciona com o -- &::before --
+
+        button 
+        {
+            color: variaveis.$branco;
+            background-color: variaveis.$corBotao;
+            border: 2px solid variaveis.$corBordaBotao;
+            font-size: 22px;
+            border-radius: 15px;
+            margin-top: 15px;
+            margin-left: 9vw;
+            padding: 5px 10px;
+            white-space:nowrap;// não pula a linha do texto
+            
+            &:hover 
+            {
+                color:variaveis.$rosa;
+                background-color: variaveis.$branco;
+                border: 2px solid variaveis.$rosa;
+            }
+            
+        }
+    }
+
+    
+}            
+
+
+@media(min-width:768px)
+{
+    header
+    {
+        background-image: url(../imagens/balloons_1280.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        p
+        {
+            max-width: 80%;
+            font-size: 40px;
+            margin: 2vw 15%;
+        }
+        ul 
+        {
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            gap: 5px;
+            font-size: 20px;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            b 
+            {
+                display: block;
+            }
+            button 
+            {
+                margin-left: 0vw;
+            }
+        }
+    }
+
+}
+
+@media(min-width:1200px)
+{
+    header
+    {
+        background-image: url(../imagens/balloons_1920.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        p
+        { 
+            font-size: 44px;
+        }
+
+        ul 
+        {
+            font-size: 26px;
+            button 
+            {
+                font-size: 28px;
+            }
+        }
+        
+    }           
+}
